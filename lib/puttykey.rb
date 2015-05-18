@@ -163,6 +163,8 @@ class PuttyKey
   end
 
   def parse(string, passphrase = nil)
+    # Ensure we only have unix line breaks
+    string.encode!(universal_newline: true)
     lns = string.lines.to_a
     until lns.empty?
       if lns.shift =~ /(\S+): (.*)/
