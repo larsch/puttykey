@@ -27,6 +27,10 @@ class TestPuttykey < Minitest::Test
     assert_reference PuttyKey.parse(PPK_CLEAR)
   end
 
+  def test_parse_windows_linebreaks
+    assert_reference PuttyKey.parse(PPK_WINDOWS)
+  end
+
   def test_parse_decrypt
     assert_reference PuttyKey.parse(PPK_ENCRYPTED, PPK_PASSPHRASE)
   end
@@ -143,3 +147,5 @@ Private-MAC: 865dc67d9192307d80aa6847ac7aa53475562e2d
 "
 
 PPK_PASSPHRASE = "asdf"
+
+PPK_WINDOWS = PPK_CLEAR.gsub("\n","\r\n")

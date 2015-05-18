@@ -7,7 +7,7 @@ Hoe.plugin :minitest
 
 spec = Hoe.spec 'puttykey' do
   developer "Lars Christensen", "larsch@belunktum.dk"
-  license "MIt"
+  license "MIT"
 end
 
 desc "Test packaged gem"
